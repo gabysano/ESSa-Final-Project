@@ -134,7 +134,7 @@ server <- function(input, output) {
         filter(ID == input$ID)
 
       ggplot(filteredCarb, aes(x = d13C, y = d18O)) +
-        geom_point(shape = 20, size = 5) +
+        geom_point(aes(bg = ID), shape = 21, size = 5) +
         ylab(expression(paste(delta^13,"C (‰, VPDB)"))) +
         xlab(expression(paste(delta^18,"O (‰, VPDB)"))) +
         theme(panel.background = element_blank(),
@@ -148,7 +148,7 @@ server <- function(input, output) {
         filter(Sample.ID == input$Sample.ID)
       
       ggplot(filteredWater, aes(x = d18O, y = dD)) +
-        geom_point(shape = 20, size = 5) +
+        geom_point(aes(bg = Sample.ID), shape = 21, size = 5) +
         ylab(expression(paste(delta,"D (‰, VSMOW)"))) +
         xlab(expression(paste(delta^18,"O (‰, VSMOW)"))) +
         theme(panel.background = element_blank(),
@@ -170,7 +170,7 @@ server <- function(input, output) {
                Isotope == input$Isotope)
       
       ggplot(filteredCarbElev, aes(x = Elevation, y = Concentration)) +
-        geom_point(shape = 20, size = 5) +
+        geom_point(aes(bg = ID), shape = 21, size = 5) +
         ylab(ifelse(input$Isotope == "d18O",
                     expression(paste(delta^18, "O (‰, VPDB)")),
                     expression(paste(delta^13, "C (‰, VPDB)")))) +
@@ -187,7 +187,7 @@ server <- function(input, output) {
                Isotope == input$Isotope)
       
       ggplot(filteredWaterElev, aes(x = Elevation, y = Concentration)) +
-        geom_point(shape = 20, size = 5) +
+        geom_point(aes(bg = Sample.ID), shape = 21, size = 5) +
         ylab(ifelse(input$Isotope == "d18O",
                     expression(paste(delta^18, "O (‰, VSMOW)")),
                     expression(paste(delta, "D (‰, VSMOW)")))) +
@@ -212,7 +212,7 @@ server <- function(input, output) {
                Isotope == input$Isotope)
       
       ggplot(filteredCarbDist, aes(x = Distance.to.coast, y = Concentration)) +
-        geom_point(shape = 20, size = 5) +
+        geom_point(aes(bg = ID), shape = 21, size = 5) +
         ylab(ifelse(input$Isotope == "d18O",
                     expression(paste(delta^18, "O (‰, VPDB)")),
                     expression(paste(delta^13, "C (‰, VPDB)")))) +
@@ -229,7 +229,7 @@ server <- function(input, output) {
                Isotope == input$Isotope)
       
       ggplot(filteredWaterDist, aes(x = Distance.to.coast, y = Concentration)) +
-        geom_point(shape = 20, size = 5) +
+        geom_point(aes(bg = Sample.ID), shape = 21, size = 5) +
         ylab(ifelse(input$Isotope == "d18O",
                     expression(paste(delta^18, "O (‰, VSMOW)")),
                     expression(paste(delta, "D (‰, VSMOW)")))) +
